@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GemModel } from '../gem-model';
+import { CartModel } from '../cart-model';
+import { CartItemModel } from '../cart-item-model';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +9,30 @@ import { GemModel } from '../gem-model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+    @Input()
+    cart: CartModel;
     homeGems: GemModel[] = [{
         id: 1,
         name: 'Dodecahedron',
         price: 2.95,
-        description: 'Some gems have hidden qualities beyond their lustre, beyond their shine... Dodecahedron is one of those gems',
+        description: 'Some gems have hidden qualities beyond their lustre, beyond their shine',
         fullImagePath: './assets/gem-01.gif',
         inventory: 10,
-        colors: ['red', 'blue', 'green']
+        colors: ['red', 'blue', 'green'],
+        reviews: [{
+            id: 1,
+            createddate: 'Tuesday',
+            author: 'joe@codingtemple.com',
+            rating: 5,
+            body: 'I love this product!'
+        },
+        {
+            id: 2,
+            createddate: 'Wednesday',
+            author: 'ripalp@codingtemple.com',
+            rating: 1,
+            body: 'I hate this product'
+        }]
     }, {
         id: 2,
         name: 'Pentagonal',
@@ -22,7 +40,8 @@ export class HomeComponent implements OnInit {
         description: 'The origin of the pentagonal gem is unknown, hence it\'s low value',
         fullImagePath: './assets/gem-02.gif',
         inventory: 0,
-        colors: ['yellow', 'blue', 'brown']
+        colors: ['yellow', 'blue', 'brown'],
+        reviews: []
     }, {
         id: 3,
         name: 'Hexagonal',
@@ -30,7 +49,8 @@ export class HomeComponent implements OnInit {
         description: 'The hexagonal gem is one of our best sellers',
         fullImagePath: './assets/gem-03.gif',
         inventory: 4,
-        colors: ['purple', 'orange', 'green']
+        colors: ['purple', 'orange', 'green'],
+        reviews: []
     }];
 
   constructor() { }

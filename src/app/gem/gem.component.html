@@ -1,12 +1,16 @@
-<div>
 <div class="card" style="width: 18rem;">
-    <img class="card-img-top" [src]="gem.fullImagePath" [alt]="gem.name">
+    <!-- <img class="card-img-top" src="{{gem.fullImagePath}}" alt="{{gem.name}}" [class.red]="selectedcolor === 'red'" [class.green]="selectedColor === 'green'" [class.blue]="selectedColor === 'blue'"> -->
+    <img class="card-img-top" src="{{gem.fullImagePath}}" alt="{{gem.name}}" [class.red]="selectedColor === 'red'" [class.green]="selectedColor === 'green'" [class.blue]="selectedColor === 'blue'">
     <div class="card-body">
-        <p class="card-text"><strong>{{gem.name}}</strong></p>
-        <p class="card-text">{{gem.description}}</p>
-        <p class="card-text" style="font-style: italic">{{gem.price | currency}}</p>
+        <h5 class="col"><strong>{{gem.name}}</strong></h5>
+        <h6 class="col" style="font-style: italic">{{gem.price | currency}}</h6>
+        <app-tabs [gem]="gem"></app-tabs>
     </div>
-    <select>
+
+    <!-- <select class="form-control" [(ngModel)]="selectedColor">
+        <option *ngFor="let color of gem.colors">{{color}}</option>
+    </select> -->
+    <select class="form-control" [(ngModel)]="selectedColor">
         <option *ngFor="let color of gem.colors">{{color}}</option>
     </select>
 
