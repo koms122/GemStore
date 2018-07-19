@@ -11,9 +11,4 @@ import { CartItemModel } from './cart-item-model';
 export class AppComponent {
     title = 'GemStore';
     year = new Date().getFullYear();
-    cart: CartModel = {
-        totalprice: 0,
-        totalquantity: 0,
-        items: []
-    };
 }

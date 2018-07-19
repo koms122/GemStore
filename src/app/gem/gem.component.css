@@ -1,0 +1,20 @@
+.red{
+	filter: hue-rotate(-45deg);
+}
+
+.green{
+	filter: hue-rotate(100deg);
+}
+
+.blue{
+	filter: hue-rotate(200deg);
+}
+.yellow{
+    filter: hue-rotate(5deg);
+}
+.brown{
+    filter: hue-rotate(400deg);
+}
+.purple{
+    filter: hue-rotate(290deg);
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GemModel } from '../gem-model';
 import { ReviewModel } from '../review-model';
+import { AvatarService } from '../avatar.service';
 
 @Component({
   selector: 'app-reviews',
@@ -11,7 +12,12 @@ export class ReviewsComponent implements OnInit {
     @Input()
     gem: GemModel;
     newReview: ReviewModel;
-    constructor() { }
+    constructor(private avatarService: AvatarService) { }
+    //  private means instead of:
+    //  avatarService: AvatarService;
+    //  constructor(avatarService: AvatarService){
+    //     this.avatarService = avatarService
+    //  }
     ngOnInit() {
         this.newReview = {
             id: -1,
@@ -22,7 +28,7 @@ export class ReviewsComponent implements OnInit {
         };
     }
     submitClicked() {
-        if(!this.gem.reviews){
+        if (!this.gem.reviews) {
             this.gem.reviews = [];
         }
         this.gem.reviews.push(this.newReview);
